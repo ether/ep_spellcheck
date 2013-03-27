@@ -1,0 +1,23 @@
+{
+  "name":        "ep_spellcheck",
+  "version":     "0.0.1",
+  "keywords":    ["spell", "check", "spelling", "spellcheck"],
+  "description": "Add support to do 'Spell checking', with a toggle on/off option in Settings",
+
+  "author": {
+    "name": "John McLear",
+    "email": "john@mclear.co.uk",
+    "url": "http://mclear.co.uk"
+  },
+
+  "repository" : {
+    "type": "git",
+    "url":  "git://github.com/johnmclear/ep_spellcheck.git"
+  },
+
+  "dependencies": {},
+
+  "engines": {
+    "node": "*"
+  }
+}
