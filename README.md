@@ -2,7 +2,7 @@
 
 Toggle on/off 'SpellCheck' option in Settings.  Uses your native browser spellchecker
 
-## Set page view off as default
+## Set spellcheck off as default
 
 1. Open `settings.json`
 2. Append:
