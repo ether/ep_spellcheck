@@ -6,7 +6,7 @@ Toggle on/off 'SpellCheck' option in Settings.  Uses your native browser spellch
 
 1. Open `settings.json`
 2. Append:
-   `ep_spellcheck_default : false`
+``ep_spellcheck: { disabledByDefault : true }``
 
 ## TODO
 
