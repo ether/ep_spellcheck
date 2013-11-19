@@ -11,3 +11,4 @@ Toggle on/off 'SpellCheck' option in Settings.  Uses your native browser spellch
 ## TODO
 
 Don't depend on native browser spellchecker
+Remember user settings as cookies
