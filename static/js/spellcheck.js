@@ -1,3 +1,5 @@
+var padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
+
 var postAceInit = function(hook, context){
   var spellcheck = {
     enable: function() {
@@ -8,17 +10,30 @@ var postAceInit = function(hook, context){
     }
   }
    /* init */
-   if($('#options-spellcheck').is(':checked')) {
+  if (padcookie.getPref("spellcheck") === false) {
+    $('#options-spellcheck').val() 
+    $('#options-spellcheck').attr('checked','unchecked');
+    $('#options-spellcheck').attr('checked',false);
+  }else{
+    $('#options-spellcheck').attr('checked','checked');
+  }
+
+  if($('#options-spellcheck').is(':checked')) {
     spellcheck.enable();
-   } else {
+  } else {
     spellcheck.disable();
   }
+
   /* on click */
   $('#options-spellcheck').on('click', function() {
    if($('#options-spellcheck').is(':checked')) {
+      padcookie.setPref("spellcheck", true)
       spellcheck.enable();
+      if(browser.chrome) window.location.reload();
     } else {
+      padcookie.setPref("spellcheck", false)
       spellcheck.disable();
+      if(browser.chrome) window.location.reload();
     }
   });
 };

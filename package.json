@@ -1,6 +1,6 @@
 {
   "name":        "ep_spellcheck",
-  "version":     "0.0.3",
+  "version":     "0.0.4",
   "keywords":    ["spell", "check", "spelling", "spellcheck"],
   "description": "Add support to do 'Spell checking', with a toggle on/off option in Settings",
 
