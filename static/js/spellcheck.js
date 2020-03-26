@@ -4,14 +4,26 @@ var postAceInit = function(hook, context){
   var spellcheck = {
     enable: function() {
       $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").attr("spellcheck","true");
+      $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").find('div').each(function(){
+        $(this).attr("spellcheck","true");
+        $(this).find('span').each(function(){
+          $(this).attr("spellcheck","true");
+        });
+      });
     },
     disable: function() {
       $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").attr("spellcheck","false");
+      $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").find('div').each(function(){
+        $(this).attr("spellcheck","false");
+        $(this).find('span').each(function(){
+          $(this).attr("spellcheck","false");
+        });
+      });
     }
   }
    /* init */
   if (padcookie.getPref("spellcheck") === false) {
-    $('#options-spellcheck').val() 
+    $('#options-spellcheck').val();
     $('#options-spellcheck').attr('checked','unchecked');
     $('#options-spellcheck').attr('checked',false);
   }else{
