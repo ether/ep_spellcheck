@@ -12,7 +12,7 @@
 
   "repository" : {
     "type": "git",
-    "url":  "git://github.com/johnmclear/ep_spellcheck.git"
+    "url":  "git://github.com/ether/ep_spellcheck.git"
   },
 
   "dependencies": {},
