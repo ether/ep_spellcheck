@@ -6,7 +6,7 @@ var postAceInit = function(hook, context){
       $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").attr("spellcheck","true");
       $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").find('div').each(function(){
         $(this).attr("spellcheck","true");
-        $(this).find('span').each(function(){
+        $(this).find('div').each(function(){
           $(this).attr("spellcheck","true");
         });
       });
