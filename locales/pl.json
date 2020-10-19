@@ -1,3 +1,6 @@
 {
-  "ep_spellcheck.spellcheck" : "Sprawdzanie pisowni"
+	"@metadata": {
+		"authors": []
+	},
+	"ep_spellcheck.spellcheck": "Sprawdzanie pisowni"
 }

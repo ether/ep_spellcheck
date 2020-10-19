@@ -1,3 +1,6 @@
 {
-  "ep_spellcheck.spellcheck" : "Vérification d'orthographe"
+	"@metadata": {
+		"authors": []
+	},
+	"ep_spellcheck.spellcheck": "Vérification d'orthographe"
 }
