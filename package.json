@@ -17,12 +17,26 @@
     "type": "git",
     "url": "git://github.com/ether/ep_spellcheck.git"
   },
-  "dependencies": {},
-  "engines": {
-    "node": "*"
-  },
   "funding": {
     "type": "individual",
     "url": "http://etherpad.org/"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-etherpad": "^1.0.8",
+    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "eslint-plugin-promise": "^4.2.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "etherpad/plugin"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=10.13.0"
   }
 }
