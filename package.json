@@ -38,5 +38,8 @@
   },
   "engines": {
     "node": ">=10.13.0"
+  },
+  "peerDependencies": {
+    "ep_etherpad-lite": ">=1.8.6"
   }
 }
