@@ -1,10 +1,14 @@
-var padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
+'use strict';
 
-var postAceInit = function (hook, context) {
+const padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
+
+const postAceInit = function (hook, context) {
+  const $outer = $('iframe[name="ace_outer"]').contents().find('iframe');
+  const $inner = $outer.contents().find('#innerdocbody');
   const spellcheck = {
     enable() {
-      $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody').attr('spellcheck', 'true');
-      $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody').find('div').each(function () {
+      $inner.attr('spellcheck', 'true');
+      $inner.find('div').each(function () {
         $(this).attr('spellcheck', 'true');
         $(this).find('div').each(function () {
           $(this).attr('spellcheck', 'true');
@@ -12,8 +16,8 @@ var postAceInit = function (hook, context) {
       });
     },
     disable() {
-      $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody').attr('spellcheck', 'false');
-      $('iframe[name="ace_outer"]').contents().find('iframe').contents().find('#innerdocbody').find('div').each(function () {
+      $inner.attr('spellcheck', 'false');
+      $inner.find('div').each(function () {
         $(this).attr('spellcheck', 'false');
         $(this).find('span').each(function () {
           $(this).attr('spellcheck', 'false');
