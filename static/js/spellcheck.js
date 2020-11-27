@@ -45,12 +45,11 @@ const postAceInit = function (hook, context) {
     if ($('#options-spellcheck').is(':checked')) {
       padcookie.setPref('spellcheck', true);
       spellcheck.enable();
-      if (browser.chrome) window.location.reload();
     } else {
       padcookie.setPref('spellcheck', false);
       spellcheck.disable();
-      if (browser.chrome) window.location.reload();
     }
+    if (window.browser.chrome) window.location.reload();
   });
 };
 exports.postAceInit = postAceInit;
