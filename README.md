@@ -1,4 +1,4 @@
-# ep_spell check
+# Spell checker for Etherpad
 
 Toggle on/off 'SpellCheck' option in Settings.  Uses your native browser spellchecker
 
