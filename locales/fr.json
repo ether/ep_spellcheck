@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Verdy p"
+		]
 	},
-	"ep_spellcheck.spellcheck": "Vérification d'orthographe"
+	"ep_spellcheck.spellcheck": "Vérification orthographique"
 }
