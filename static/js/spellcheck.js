@@ -2,11 +2,11 @@
 
 const padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
 
-const postAceInit = function (hook, context) {
+const postAceInit = (hook, context) => {
   const $outer = $('iframe[name="ace_outer"]').contents().find('iframe');
   const $inner = $outer.contents().find('#innerdocbody');
   const spellcheck = {
-    enable() {
+    enable: () => {
       $inner.attr('spellcheck', 'true');
       $inner.find('div').each(function () {
         $(this).attr('spellcheck', 'true');
@@ -15,7 +15,7 @@ const postAceInit = function (hook, context) {
         });
       });
     },
-    disable() {
+    disable: () => {
       $inner.attr('spellcheck', 'false');
       $inner.find('div').each(function () {
         $(this).attr('spellcheck', 'false');
