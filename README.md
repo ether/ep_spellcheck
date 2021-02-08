@@ -1,3 +1,5 @@
+![Publish Status](https://github.com/ether/ep_spellcheck/workflows/Node.js%20Package/badge.svg) ![Backend Tests Status](https://github.com/ether/ep_spellcheck/workflows/Backend%20tests/badge.svg)
+
 # Spell checker for Etherpad
 
 Toggle on/off 'SpellCheck' option in Settings.  Uses your native browser spellchecker
