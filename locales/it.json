@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"VamosErik88"
 		]
 	},
-	"ep_spellcheck.spellcheck": "Correzione ortografica"
+	"ep_spellcheck.spellcheck": "Correzione Ortografica"
 }
