@@ -1,9 +1,3 @@
 {
-	"@metadata": {
-		"authors": [
-			"Eduardo Addad de Oliveira",
-			"Eduardoaddad"
-		]
-	},
-	"ep_spellcheck.spellcheck": "Verificação ortográfica"
+  "ep_spellcheck.spellcheck" : "Correção Ortográfica"
 }
