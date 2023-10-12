@@ -1,3 +1,8 @@
 {
-  "ep_spellcheck.spellcheck" : "Correção Ortográfica"
+	"@metadata": {
+		"authors": [
+			"Eduardoaddad"
+		]
+	},
+	"ep_spellcheck.spellcheck": "Verificação ortográfica"
 }
