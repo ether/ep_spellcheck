@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"McDutchie"
+		]
 	},
-	"ep_spellcheck.spellcheck": "Controleer Spelling"
+	"ep_spellcheck.spellcheck": "Spellingscontrole"
 }
