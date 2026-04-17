@@ -13,3 +13,20 @@ Toggle on/off 'SpellCheck' option in Settings.  Uses your native browser spellch
 ## TODO
 
 * Remember user settings as cookies
+
+## Installation
+
+Install from the Etherpad admin UI (**Admin → Manage Plugins**,
+search for `ep_spellcheck` and click *Install*), or from the Etherpad
+root directory:
+
+```sh
+pnpm run plugins install ep_spellcheck
+```
+
+> ⚠️ Don't run `npm i` / `npm install` yourself from the Etherpad
+> source tree — Etherpad tracks installed plugins through its own
+> plugin-manager, and hand-editing `package.json` can leave the
+> server unable to start.
+
+After installing, restart Etherpad.
