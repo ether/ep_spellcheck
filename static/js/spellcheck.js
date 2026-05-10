@@ -1,51 +1,35 @@
 'use strict';
 
-const padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
+// Sub-path import keeps the client bundle clean — the top-level
+// `ep_plugin_helpers` index pulls in server-only modules (eejs, Settings).
+const {padToggle} = require('ep_plugin_helpers/pad-toggle');
 
-const postAceInit = (hook, context) => {
-  const $outer = $('iframe[name="ace_outer"]').contents().find('iframe');
-  const $inner = $outer.contents().find('#innerdocbody');
+// Same config as the server-side instance — must agree on pluginName,
+// settingId, l10nId, and defaultLabel so checkbox ids and clientVars line up.
+const spellcheckToggle = padToggle({
+  pluginName: 'ep_spellcheck',
+  settingId: 'spellcheck',
+  l10nId: 'ep_spellcheck.spellcheck',
+  defaultLabel: 'Spell Check',
+  defaultEnabled: true,
+});
+
+// Re-export so the helper sees pad-wide broadcasts and refreshes our state
+// when another user toggles the pad-wide checkbox.
+exports.handleClientMessage_CLIENT_MESSAGE = spellcheckToggle.handleClientMessage_CLIENT_MESSAGE;
+
+exports.postAceInit = () => {
   // The `spellcheck` attribute is inherited from the nearest ancestor that
-  // sets it, so we only need to toggle it on #innerdocbody. The previous
-  // implementation walked every <div>/<span> descendant on every toggle,
-  // which is O(n) in line count and multiplied the browser's already-slow
-  // per-keystroke spellchecking work — observable as typing lag on pads
-  // with more than a few hundred lines (#26). Setting the attribute once
-  // on the contenteditable root is equivalent for the browser's checker.
-  const spellcheck = {
-    enable: () => { $inner.attr('spellcheck', 'true'); },
-    disable: () => { $inner.attr('spellcheck', 'false'); },
-  };
-  /* init */
-  if (padcookie.getPref('spellcheck') === false) {
-    $('#options-spellcheck').val();
-    $('#options-spellcheck').attr('checked', 'unchecked');
-    $('#options-spellcheck').attr('checked', false);
-  } else {
-    $('#options-spellcheck').attr('checked', 'checked');
-  }
+  // sets it, so we only need to toggle it on #innerdocbody. Walking every
+  // <div>/<span> descendant (the previous behavior) is O(n) in line count
+  // and multiplied the browser's already-slow per-keystroke spellchecking
+  // work — observable as typing lag on pads with > a few hundred lines (#26).
+  const $inner = $('iframe[name="ace_outer"]').contents().find('iframe')
+      .contents().find('#innerdocbody');
 
-  if ($('#options-spellcheck').is(':checked')) {
-    spellcheck.enable();
-  } else {
-    spellcheck.disable();
-  }
-
-  /* on click */
-  $('#options-spellcheck').on('click', () => {
-    if ($('#options-spellcheck').is(':checked')) {
-      padcookie.setPref('spellcheck', true);
-      spellcheck.enable();
-    } else {
-      padcookie.setPref('spellcheck', false);
-      spellcheck.disable();
-    }
-    // The previous code force-reloaded the page on Chrome via
-    // `window.browser.chrome`. That check was always a no-op on Chrome
-    // (Chrome has no `window.browser` object — it's the Firefox
-    // WebExtension API) and would have thrown a TypeError on Firefox.
-    // Toggling the spellcheck attribute takes effect in every current
-    // browser without a reload, so just drop the reload.
+  spellcheckToggle.init({
+    onChange: (enabled) => {
+      $inner.attr('spellcheck', enabled ? 'true' : 'false');
+    },
   });
 };
-exports.postAceInit = postAceInit;
