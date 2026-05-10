@@ -2,12 +2,15 @@
   "parts": [
     {
       "name": "ep_spellcheck",
-      "client_hooks": {
-        "postAceInit": "ep_spellcheck/static/js/spellcheck:postAceInit"
-      },
       "hooks": {
+        "loadSettings": "ep_spellcheck/spellcheck",
+        "clientVars": "ep_spellcheck/spellcheck",
         "eejsBlock_mySettings": "ep_spellcheck/spellcheck",
-        "eejsBlock_dd_view" : "ep_spellcheck/spellcheck"
+        "eejsBlock_padSettings": "ep_spellcheck/spellcheck"
+      },
+      "client_hooks": {
+        "postAceInit": "ep_spellcheck/static/js/spellcheck:postAceInit",
+        "handleClientMessage_CLIENT_MESSAGE": "ep_spellcheck/static/js/spellcheck:handleClientMessage_CLIENT_MESSAGE"
       }
     }
   ]
