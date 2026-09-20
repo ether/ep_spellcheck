@@ -4,6 +4,33 @@
 
 Toggle on/off 'SpellCheck' option in Settings.  Uses your native browser spellchecker
 
+## Browser support
+
+This plugin does not spell check anything itself. All it does is flip the
+standard HTML `spellcheck` attribute on the editor body (Etherpad's
+`#innerdocbody`) between `true` and `false`. Finding misspellings, choosing a
+dictionary and drawing the red underlines is entirely the browser's job.
+
+That means the plugin can only work where the browser ships a spell checker:
+
+| Browser | Misspellings underlined? |
+| --- | --- |
+| Firefox, Chrome, Edge, Safari on desktop | Yes |
+| Chrome on Android, Safari on iOS | Yes |
+| **Firefox on Android** | **No** — Gecko's spell checker is compiled out of the Android build, so no web page can get underlines there. See [Mozilla bug 1541697](https://bugzilla.mozilla.org/show_bug.cgi?id=1541697). |
+
+If words are not underlined on Firefox for Android, the toggle is still doing
+its job — there is simply no spell checker behind it. Autocorrect suggestions
+from the on-screen keyboard are unaffected either way.
+
+## Which dictionary / language is used?
+
+The browser's, not Etherpad's. Etherpad sets `lang` on the outer page from the
+UI language, but the editor lives in nested iframes that carry no `lang`
+attribute, so the browser falls back to its own default dictionary (whatever
+the user configured in the browser or the OS). Changing the Etherpad interface
+language does not change the spell checking language.
+
 ## Set spellcheck off as default
 
 1. Open `settings.json`
